@@ -15,7 +15,7 @@ interface AnalysisData {
   companyName: string;
   jobTitle: string;
   jobDescription: string;
-  feedback: any; // You might want to define a more specific type for feedback
+  feedback: any; // You can replace 'any' with a more specific type
 }
 
 interface UploadedFile {
@@ -193,11 +193,6 @@ const Upload = () => {
       setStatusText("Analysis complete! Redirecting...");
       console.log("🎉 Analysis complete! Data:", updatedData);
 
-      // Navigate to results
-      setTimeout(() => {
-        navigate(`/results/${uuid}`);
-      }, 1000);
-
     } catch (error) {
       console.error("❌ Error in handleAnalyze:", error);
       const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
@@ -225,7 +220,6 @@ const Upload = () => {
     });
 
     if (!file) {
-      console.log("❌ No file selected");
       alert("Please select a file first");
       return;
     }
@@ -236,7 +230,7 @@ const Upload = () => {
       return;
     }
 
-    console.log("🚀 Calling handleAnalyze...");
+    // Handle file upload;
     try {
       await handleAnalyze({ companyName, jobTitle, jobDescription, file });
       console.log("✅ handleAnalyze completed");
@@ -308,7 +302,7 @@ const Upload = () => {
               </div>
 
               <button
-                className="primary-button"
+                className="primary-button hover:transform hover:scale-105 transition duration-300"
                 type="submit"
                 disabled={!file}
               >
@@ -325,77 +319,77 @@ const Upload = () => {
 export default Upload;
 
     // Java Developer – Full Time
-    //
+    
     // 📍 Location: Bangalore / Remote
     // 🕒 Experience: 0–2 years
     // 🏢 Company: TechNova Solutions Pvt. Ltd.
-    //
+    
     // About the Role
-    //
+    
     // We are seeking a highly motivated Java Developer to join our engineering team. You will be responsible for designing, developing, and maintaining scalable backend applications using Java and modern frameworks. This is an excellent opportunity to grow in a fast-paced, product-focused environment and work with cutting-edge technologies.
-    //
+    
     // Responsibilities
-    //
+    
     // Develop and maintain backend services using Java, Spring Boot, and REST APIs
-    //
+    
     // Collaborate with cross-functional teams including UI, QA, DevOps, and Product
-    //
+    
     // Participate in the full SDLC: design, coding, testing, deployment, and maintenance
-    //
+    
     // Write clean, efficient, and well-documented code
-    //
+    
     // Troubleshoot and debug production issues
-    //
+    
     // Work with databases like MySQL / PostgreSQL / MongoDB
-    //
+    
     // Implement secure, scalable, and high-performance backend systems
-    //
+    
     // Participate in code reviews and contribute to team knowledge sharing
-    //
+    
     // Required Skills
-    //
+    
     // Solid understanding of Core Java, OOPs, Collections, Multithreading
-    //
+    
     // Hands-on experience with Spring Boot
-    //
+    
     // Experience building REST APIs
-    //
+    
     // Familiarity with SQL & relational databases
-    //
+    
     // Understanding of Git / CI-CD pipelines
-    //
+    
     // Knowledge of Data Structures & Algorithms
-    //
+    
     // Good problem-solving and debugging skills
-    //
+    
     // Good to Have
-    //
+    
     // Knowledge of Microservices Architecture
-    //
+    
     // Experience with Docker / Kubernetes / Cloud (AWS/GCP/Azure)
-    //
+    
     // Familiarity with JUnit / Mockito
-    //
+    
     // Frontend basics (React/Angular) – not required but a plus
-    //
+    
     // Education
-    //
+    
     // Bachelor's degree in Computer Science, Engineering, or related field (B.Tech/BCA/MCA preferred)
-    //
+    
     // Why Join Us
-    //
+    
     // Work on real-world scalable products
-    //
+    
     // Mentorship from senior engineers
-    //
+    
     // Learning & growth culture
-    //
+    
     // Hybrid/Remote work flexibility
-    //
+    
     // Health insurance & employee benefits
-    //
+    
     // If you're passionate about solving real-world engineering challenges and eager to build high-impact products, we'd love to meet you!
-    //
+    
     // 📧 Apply at: careers@technova.com
-    //
+    
     // 🌐 Website: www.technova.com

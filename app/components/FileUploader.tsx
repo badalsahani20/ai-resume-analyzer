@@ -8,8 +8,8 @@ interface FileUploaderProps {
     maxSizeInMB?: number;
 }
 
-const FileUploader = ({ 
-    onFileSelect, 
+const FileUploader = ({
+    onFileSelect,
     acceptedFileTypes = { 'application/pdf': ['.pdf'] },
     maxSizeInMB = 20
 }: FileUploaderProps) => {
@@ -56,8 +56,8 @@ const FileUploader = ({
 
     return (
         <div className="w-full gradient-border">
-            <div 
-                {...getRootProps()} 
+            <div
+                {...getRootProps()}
                 className={`w-full ${isDragActive ? 'bg-gray-50' : ''}`}
             >
                 <input {...getInputProps()} />
@@ -87,10 +87,10 @@ const FileUploader = ({
                     ) : (
                         <div className="p-6 text-center">
                             <div className="mx-auto w-16 h-16 flex items-center justify-center mb-2">
-                                <img 
-                                    src="/icons/info.svg" 
-                                    alt="Upload resume" 
-                                    className="size-20" 
+                                <img
+                                    src="/icons/info.svg"
+                                    alt="Upload resume"
+                                    className="size-20"
                                 />
                             </div>
                             <p className="text-lg text-gray-500">

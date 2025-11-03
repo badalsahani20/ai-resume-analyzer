@@ -3,8 +3,9 @@
 @import "tw-animate-css";
 
 @theme {
-  --font-sans: "Mona Sans", ui-sans-serif, system-ui, sans-serif,
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    "Mona Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --color-dark-200: #475467;
   --color-light-blue-100: #c1d3f81a;
   --color-light-blue-200: #a7bff14d;
@@ -115,6 +116,7 @@ form {
     @apply flex items-center justify-between p-3 bg-gray-50 rounded-2xl;
   }
 }
+
 
 @utility bg-gradient {
   background: linear-gradient(to bottom, #f0f4ff 60%, #fa7185cc);

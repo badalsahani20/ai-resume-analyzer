@@ -32,11 +32,8 @@ const Resume = () => {
                 setLoading(true);
                 setError(null);
                 
-                console.log("📂 Loading resume data for ID:", id);
-                
                 // ✅ Load from KV
                 const resume = await kv.get(`resume:${id}`);
-                console.log("📄 Resume data from KV:", resume);
 
                 if(!resume) {
                     setError("Resume not found");
@@ -44,28 +41,23 @@ const Resume = () => {
                 }
 
                 const data = JSON.parse(resume);
-                console.log("📊 Parsed resume data:", data);
 
                 // ✅ Load PDF
                 if (data.resumePath) {
-                    console.log("📤 Loading PDF from:", data.resumePath);
                     const resumeBlob = await fs.read(data.resumePath);
                     if(resumeBlob) {
                         const pdfBlob = new Blob([resumeBlob], {type: 'application/pdf'});
                         const resumeUrl = URL.createObjectURL(pdfBlob);
                         setResumeUrl(resumeUrl);
-                        console.log("✅ PDF URL created");
                     }
                 }
 
-                // ✅ FIX 2: Load Image
+                // ✅ Load Image
                 if (data.imagePath) {
-                    console.log("🖼️ Loading image from:", data.imagePath);
                     const imageBlob = await fs.read(data.imagePath);
                     if(imageBlob) {
                         const imageUrl = URL.createObjectURL(imageBlob);
                         setImageUrl(imageUrl);
-                        console.log("✅ Image URL created:", imageUrl);
                     } else {
                         console.log("❌ No image blob found");
                     }
@@ -76,11 +68,9 @@ const Resume = () => {
                 // ✅ Load Feedback
                 if (data.feedback) {
                     setFeedback(data.feedback);
-                    console.log("📝 Feedback loaded:", data.feedback);
                 }
 
             } catch (err) {
-                console.error("❌ Error loading resume:", err);
                 setError("Failed to load resume data");
             } finally {
                 setLoading(false);
@@ -92,9 +82,6 @@ const Resume = () => {
         }
     }, [id, kv, fs]);
 
-    useEffect(() => {
-        console.log("🔄 Current state:", { imageUrl, resumeUrl, feedback, loading, error });
-    }, [imageUrl, resumeUrl, feedback, loading, error]);
   return (
     <main className='pt-0!'>
         <nav className='resume-nav'>

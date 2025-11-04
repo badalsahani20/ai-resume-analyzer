@@ -15,12 +15,11 @@ interface AnalysisData {
   companyName: string;
   jobTitle: string;
   jobDescription: string;
-  feedback: any; // You can replace 'any' with a more specific type
+  feedback: any;
 }
 
 interface UploadedFile {
   path: string;
-  // Add other properties that fs.upload returns
   [key: string]: any;
 }
 
@@ -48,13 +47,12 @@ const Upload = () => {
     jobDescription: string;
     file: File;
   }): Promise<void> => {
-    console.log("🎯 handleAnalyze started");
     setIsProcessing(true);
     try {
       // Step 1: Upload PDF
+      setStatusText("Getting Started...");
       setStatusText("📤 Uploading your resume...");
       const uploadedFile = await fs.upload([file]);
-      console.log("✅ File uploaded:", uploadedFile);
 
       if (!uploadedFile) {
         setStatusText("❌ Failed to upload resume");
@@ -73,7 +71,6 @@ const Upload = () => {
       // Step 3: Upload Image
       setStatusText("📤 Uploading preview image...");
       const uploadedImage = await fs.upload([imageFile.file]);
-      console.log("✅ Uploaded Image");
 
       if (!uploadedImage) {
         setStatusText("❌ Failed to upload preview image");
@@ -129,7 +126,6 @@ const Upload = () => {
       navigate(`/resume/${uuid}`);
     } catch (error) {
       setStatusText("❌ Something went wrong. Please try again.");
-      console.error(error);
       setError(error as string);
       setIsProcessing(false);
     }
@@ -137,19 +133,11 @@ const Upload = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    console.log("✅ handleSubmit started");
 
     const formData = new FormData(e.currentTarget);
     const companyName = formData.get("company-name") as string;
     const jobTitle = formData.get("job-title") as string;
     const jobDescription = formData.get("job-description") as string;
-
-    console.log("📝 Form data:", {
-      companyName,
-      jobTitle,
-      jobDescription,
-      file: file ? file.name : "No file",
-    });
 
     if (!file) {
       alert("Please select a file first");
@@ -165,9 +153,8 @@ const Upload = () => {
     // Handle file upload;
     try {
       await handleAnalyze({ companyName, jobTitle, jobDescription, file });
-      console.log("✅ handleAnalyze completed");
-    } catch (error) {
-      console.error("❌ handleAnalyze failed:", error);
+    } catch (error: any) {
+      setError(error.message);
     }
   };
 
@@ -253,80 +240,3 @@ const Upload = () => {
 };
 
 export default Upload;
-
-// Java Developer – Full Time
-
-// 📍 Location: Bangalore / Remote
-// 🕒 Experience: 0–2 years
-// 🏢 Company: TechNova Solutions Pvt. Ltd.
-
-// About the Role
-
-// We are seeking a highly motivated Java Developer to join our engineering team. You will be responsible for designing, developing, and maintaining scalable backend applications using Java and modern frameworks. This is an excellent opportunity to grow in a fast-paced, product-focused environment and work with cutting-edge technologies.
-
-// Responsibilities
-
-// Develop and maintain backend services using Java, Spring Boot, and REST APIs
-
-// Collaborate with cross-functional teams including UI, QA, DevOps, and Product
-
-// Participate in the full SDLC: design, coding, testing, deployment, and maintenance
-
-// Write clean, efficient, and well-documented code
-
-// Troubleshoot and debug production issues
-
-// Work with databases like MySQL / PostgreSQL / MongoDB
-
-// Implement secure, scalable, and high-performance backend systems
-
-// Participate in code reviews and contribute to team knowledge sharing
-
-// Required Skills
-
-// Solid understanding of Core Java, OOPs, Collections, Multithreading
-
-// Hands-on experience with Spring Boot
-
-// Experience building REST APIs
-
-// Familiarity with SQL & relational databases
-
-// Understanding of Git / CI-CD pipelines
-
-// Knowledge of Data Structures & Algorithms
-
-// Good problem-solving and debugging skills
-
-// Good to Have
-
-// Knowledge of Microservices Architecture
-
-// Experience with Docker / Kubernetes / Cloud (AWS/GCP/Azure)
-
-// Familiarity with JUnit / Mockito
-
-// Frontend basics (React/Angular) – not required but a plus
-
-// Education
-
-// Bachelor's degree in Computer Science, Engineering, or related field (B.Tech/BCA/MCA preferred)
-
-// Why Join Us
-
-// Work on real-world scalable products
-
-// Mentorship from senior engineers
-
-// Learning & growth culture
-
-// Hybrid/Remote work flexibility
-
-// Health insurance & employee benefits
-
-// If you're passionate about solving real-world engineering challenges and eager to build high-impact products, we'd love to meet you!
-
-// 📧 Apply at: careers@technova.com
-
-// 🌐 Website: www.technova.com
-// ffd9e240-9664-4679-a611-2a0ce2a92bba

@@ -8,25 +8,18 @@ export async function convertPdfToImage(
   file: File
 ): Promise<PdfConversionResult> {
   try {
-    console.log("🔄 Starting PDF conversion for:", file.name);
-
     // Import PDF.js
     const PDFJS = await import('pdfjs-dist');
     const pdfjsLib = PDFJS.default || PDFJS;
     
-    // ⭐⭐ IMPORTANT: Use the local worker file you just copied ⭐⭐
+    // ⭐⭐ IMPORTANT: Using the local worker file you just copied ⭐⭐
     pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.mjs';
-    
-    console.log("✅ PDF.js initialized with local worker");
 
     const arrayBuffer = await file.arrayBuffer();
-    console.log("📄 PDF loaded into array buffer");
 
     const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-    console.log("✅ PDF document loaded, pages:", pdf.numPages);
 
     const page = await pdf.getPage(1);
-    console.log("✅ Page 1 loaded");
 
     const viewport = page.getViewport({ scale: 1.5 });
     const canvas = document.createElement("canvas");
@@ -37,9 +30,7 @@ export async function convertPdfToImage(
     canvas.width = viewport.width;
     canvas.height = viewport.height;
 
-    console.log("🎨 Rendering page to canvas...");
     await page.render({ canvasContext: context, viewport, canvas }).promise;
-    console.log("✅ Page rendered successfully");
 
     return new Promise((resolve) => {
       canvas.toBlob((blob) => {

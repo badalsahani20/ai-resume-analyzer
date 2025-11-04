@@ -41,9 +41,9 @@ const CategoryContent = ({tips} : CategoryContentProps) => {
             </div>
           ))}
       </div>
-      <div className='flex flex-col gap-4 w-full'>
+      <div className='flex flex-col gap-4 w-full max-h-[300px] overflow-y-auto'>
           {tips.map((tip, index) => (
-            <div className={cn("flex flex-col gap-2 rounded-2xl p-4",tip.type === "good" ? "bg-green-50 border border-green-200 text-green-700" : "bg-yellow-50 border border-yellow-200 text-yellow-700")}>
+            <div key={index} className={cn("flex flex-col gap-2 rounded-2xl p-4 max-h-[150px] scroll-auto",tip.type === "good" ? "bg-green-50 border border-green-200 text-green-700" : "bg-yellow-50 border border-yellow-200 text-yellow-700")}>
               <div className='flex flex-row gap-2 items-center'>
                 <img src={tip.type === "good" ? "/icons/check.svg" : "/icons/warning.svg"} alt="score" className='size-5' />
                 <p>{tip.explanation}</p>

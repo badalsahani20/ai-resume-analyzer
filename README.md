@@ -1,87 +1,99 @@
-# Welcome to React Router!
+# AI Resume Analyzer
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A smart, AI-powered resume analysis tool that evaluates resumes based on ATS compatibility, structure, tone, skills, and content. Designed to help job seekers optimize their resumes for real‑world recruitment systems and hiring expectations.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+<a href="https://skill-scanner-beta.vercel.app">## 🚀 Live Demo </a>
 
-## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## 🧠 Features
 
-## Getting Started
+- ✅ AI‑powered resume scoring
+- 📊 Score breakdown by categories (skills, ATS, tone, content, structure)
+- 🎯 Actionable suggestions for improvement
+- 📂 Cloud storage integration (Puter API)
+- 📸 PDF‑to‑Image conversion in browser
+- 🧾 Downloadable feedback
+- 🌐 Built for modern MERN‑style workflow (React + Tailwind + AI APIs)
+- 🎨 Smooth UI & micro‑interactions
 
-### Installation
+## 🛠️ Tech Stack
 
-Install the dependencies:
+| Frontend | Backend / AI | Storage |
+|---------|--------------|--------|
+| React | AI LLM APIs | Puter Cloud Storage |
+| TypeScript | Custom Resume Analysis Prompting | PDF‑to‑Image |
+| Tailwind CSS | | Browser APIs |
 
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+> This project does **not** use MongoDB — storage & file handling is done using **Puter cloud APIs** ✅
 
 ---
 
-Built with ❤️ using React Router.
+## 📂 Project Structure
+
+```
+/src
+ ├── components
+ ├── routes
+ ├── lib (API + Puter storage logic)
+ └── utils (PDF → Image + formatting)
+```
+
+---
+
+## 📷 Screenshots
+
+<img src="/public/images/Screenshot 2025-11-04 185522.png" alt="image" />
+<img src="/public/images/Screenshot 2025-11-04 182259.png" alt="image" />
+
+> UI previews coming soon…
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/badalsahani20/ai-resume-analyzer
+cd ai-resume-analyzer
+npm install
+npm run dev
+```
+
+---
+
+## 🤖 AI Prompt Strategy
+
+The system evaluates resumes on:
+
+- ATS keyword match
+- Skills relevance
+- Structure & formatting
+- Tone & clarity
+- Technical depth
+
+Then generates improvement suggestions & scores per category.
+
+---
+
+## 🧪 Future Enhancements
+
+- ✅ Resume improvement generator
+- ✅ One‑click AI rewrite
+- 🚧 JD‑based tailored resume scoring
+- 🚧 PDF highlight overlays
+- 🚧 Export polished resume formats
+
+---
+
+## 🧑‍💻 Author
+
+**Badal Sahani**
+Java & MERN Developer | Backend Focused
+Portfolio: https://badal-sahani.vercel.app
+GitHub: https://github.com/badalsahani20
+
+---
+
+## ⭐ Support
+
+If this project helped you, please ⭐ the repo!
+Contributions and PRs are welcome 🙌
